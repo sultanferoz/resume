@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sultan Feroz - Front End Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Swiper.js CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-container">
+            <div class="nav-menu" id="nav-menu">
+                <div class="nav-group nav-group-left">
+                    <a href="#about" class="nav-link">Info <span>About Me</span></a>
+                    <a href="#work" class="nav-link">Work <span>Some Cases</span></a>
+                </div>
+                <div class="nav-center">
+                    <a href="#home" class="nav-link">Home</a>
+                </div>
+                <div class="nav-group nav-group-right">
+                    <!-- <a href="#contact" class="nav-link">Workflow <span>All The Processes</span></a> -->
+                    <a href="workflow.html" class="nav-link">Workflow <span>My Process</span></a>
+                    <a href="#contact" class="nav-link">Contact Me <span>For Any Collaborations</span></a>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-replica">
+        <div class="hero-bg-svg">
+            <svg width="100%" height="100%" viewBox="0 0 1920 900" fill="none" xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none">
+                <circle cx="960" cy="450" r="430" stroke="#cfc6b0" stroke-width="1" />
+                <circle cx="960" cy="450" r="650" stroke="#cfc6b0" stroke-width="1" />
+                <line x1="0" y1="450" x2="1920" y2="450" stroke="#cfc6b0" stroke-width="1" />
+                <line x1="960" y1="0" x2="960" y2="900" stroke="#cfc6b0" stroke-width="1" />
+            </svg>
+            <div class="hero-numbers">
+                <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span><span>07</span><span>08</span><span>09</span>
+            </div>
+        </div>
+        <div class="hero-replica-content">
+            <span class="hero-name-left hero-3d">Sultan</span>
+            <video class="hero-video" src="public/hero.mp4" autoplay loop muted playsinline></video>
+            <span class="hero-name-right hero-3d">Feroz</span>
+        </div>
+        <div class="hero-replica-bottom">
+            <div class="hero-replica-bottom-left">
+                <span class="hero-play-label" id="showreel-btn">PLAY<br>SHOWREEL</span>
+            </div>
+            <div class="hero-replica-bottom-right">
+                <div class="hero-starburst">★</div>
+                <span class="hero-click">CLICK CLICK</span>
+                <ul class="hero-list">
+                    <li>API Integration</li>
+                    <li>UI/UX Design</li>
+                    <li>Frontend Development</li>
+                    <li>App/feature concepting </li>
+                    <li>Code-based prototyping </li>
+                    <li>Performance Optimization</li>
+                </ul>
+            </div>
+        </div>
+        <div class="hero-video-zoom-overlay" id="video-zoom-overlay">
+            <div class="hero-video-zoom-container">
+                <video class="hero-video hero-video-zoomed" src="public/hero.mp4" autoplay loop muted
+                    playsinline></video>
+                <button class="hero-video-close" id="close-zoom">×</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-container">
+            <div class="about-content">
+                <div class="about-text-section">
+                    <h2 class="about-title">About Me</h2>
+                    <div class="about-description">
+                        <p class="reveal-type">
+                            I'm a passionate <strong>Front End Engineer</strong> who loves creating
+                            <strong>beautiful and functional</strong> digital experiences. With over
+                            <strong>3 years of experience</strong>, I've worked with various
+                            <strong> startups</strong> to bring their visions to life.
+                        </p>
+                        <p class="reveal-type">
+                            My expertise includes <strong>React.js</strong>, <strong>Next.js</strong>,
+                            <strong>TypeScript</strong>, and <strong>modern web technologies</strong>.
+                            I believe in writing <strong>clean, maintainable code</strong> and creating
+                            <strong>pixel-perfect designs</strong> that provide excellent user experiences.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Scrolling Text Replica Section -->
+                <div class="scrolling-text-container replica-grid">
+                    <div class="replica-row line-reveal">
+                        <span class="replica-block">REACT DEVELOPER</span>
+                        <span class="replica-star">★</span>
+                        <span class="replica-block replica-blur"><b><i>FRONT END ENGINEER</i></b></span>
+                    </div>
+                    <div class="replica-row line-reveal">
+                        <span class="replica-block replica-underline"><i>JAVASCRIPT EXPERT</i></span>
+                        <span class="replica-block">NEXT.JS SPECIALIST</span>
+                    </div>
+                    <div class="replica-row line-reveal">
+                        <span class="replica-block">TYPESCRIPT LOVER</span>
+                        <span class="replica-and"><span class="replica-line"></span>&amp;<span
+                                class="replica-line"></span></span>
+                        <span class="replica-block">UI/UX DESIGN</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- <div class="section"></div>
+    <div class="scroll_wrap">
+        <div>
+            <div role="listitem" class="scroll_trigger">
+                <img src="https://images.pexels.com/photos/33202039/pexels-photo-33202039.jpeg" alt="first" loading="lazy" class="scroll_background">
+            </div>
+            <div role="listitem" class="scroll_trigger">
+                <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg" alt="second" loading="lazy" class="scroll_background">
+            </div>
+            <div role="listitem" class="scroll_trigger">
+                <img src="https://images.pexels.com/photos/1107717/pexels-photo-1107717.jpeg" alt="third" loading="lazy" class="scroll_background">
+            </div>
+            <div role="listitem" class="scroll_trigger">
+                <img src="https://images.pexels.com/photos/4842496/pexels-photo-4842496.jpeg" alt="four" loading="lazy" class="scroll_background">
+            </div>
+            <div role="listitem" class="scroll_trigger">
+                <img src="https://images.pexels.com/photos/171198/pexels-photo-171198.jpeg" alt="five" loading="lazy" class="scroll_background">
+            </div>
+        </div>
+        <div class="scroll_track">
+            <div role="list" class="scroll_sticky">
+                <div role="listitem" class="scroll_item">
+                    <h2 class="scroll_title"> GatherGram is a modern online platform for weddings and special
+                        events, built with Next.js 15, JavaScript, CSS, and MUI. It brings couples and guests
+                        together in one secure, beautifully designed space to share photos, send gifts, play
+                        trivia, and stay connected—no app required. </h2>
+                        <a href="https://gathergram-site.netlify.app/" target="_blank" class="cardPara-a">Visit Now...</a>
+                        <img src="public/tep1.png" alt="one" loading="lazy" class="scroll_img">
+                </div>
+                <div role="listitem" class="scroll_item">
+                    <h2 class="scroll_title"> Dark Sky Tourism is a modern tourism website built with Next.js
+                        and custom CSS animations. It offers a smooth, interactive experience for exploring
+                        night sky destinations, tours, and stargazing spots, blending performance with elegant
+                        motion design. </h2>
+                        <a href="https://darkskytourism.com/" target="_blank" class="cardPara-a">Visit Now...</a>
+                        <img src="public/tep2.png" alt="one" loading="lazy" class="scroll_img">
+                </div>
+                <div role="listitem" class="scroll_item">
+                    <h2 class="scroll_title"> JBay Solutions is a fully responsive, static website developed
+                        using HTML, CSS, and JavaScript. It delivers a fast, lightweight experience with simple
+                        animations and a clear layout to highlight business services effectively. </h2>
+                        <a href="https://preview--jbay-website-revamp-project.lovable.app/" target="_blank" class="cardPara-a">Visit Now...</a>
+                        <img src="public/tep3.png" alt="one" loading="lazy" class="scroll_img">
+                </div>
+                <div role="listitem" class="scroll_item">
+                    <h2 class="scroll_title"> GameGain Dashboard is a sleek, responsive web app built with
+                        Next.js and MUI. Designed for gamers and analytics, it presents performance stats and
+                        user data in a clean, intuitive interface optimized for both desktop and mobile. </h2>
+                        <a href="https://gamegaindashboard.netlify.app/" target="_blank" class="cardPara-a">Visit Now...</a>
+                        <img src="public/tep4.png" alt="one" loading="lazy" class="scroll_img">
+                </div>
+                <div role="listitem" class="scroll_item">
+                    <h2 class="scroll_title"> Sky Sojourn is a modern React-based travel showcase featuring
+                        smooth UI, responsive design, and custom CSS styling. It offers an engaging interface
+                        for discovering destinations with a focus on clarity and user experience.</h2>
+                        <a href="https://sky-sojourn-nj8m.vercel.app/" target="_blank" class="cardPara-a">Visit Now...</a>
+                        <img src="public/tep5.png" alt="one" loading="lazy" class="scroll_img">
+                </div>
+            </div>
+
+        </div>
+
+    </div> -->
+
+
+    <section class="split-reveal">
+        <!-- Section visual halves -->
+        <div class="split-bg top-bg"></div>
+        <div class="split-bg bottom-bg"></div>
+
+        <!-- Initially full word -->
+        <div class="split-overlay">
+            <h2 class="split-full">SHOWCASE</h2>
+        </div>
+    </section>
+
+    <section class="skw-section">
+        <div class="workflow-step-left">
+                    <div class="workflow-step-label">My.</div>
+                    <div class="workflow-step-title">Work</div>
+                    <div class="workflow-step-number">2.0</div>
+                </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="/public/tep1.png" alt="" class="card-img">
+                    <div class="cardPara">
+                        <h3 class="cardPara-h3">GatherGram</h3>
+                        <p class="cardPara-p">GatherGram is a modern online platform for weddings and special
+                        events, built with Next.js 15, JavaScript, CSS, and MUI. It brings couples and guests
+                        together in one secure, beautifully designed space to share photos, send gifts, play
+                        trivia.
+                        </p>
+                         <a href="https://gathergram-site.netlify.app/" target="_blank" class="cardPara-a">Visit Now....</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+
+
+                    <img src="/public/tep2.png" alt="" class="card-img">
+                    <div class="cardPara">
+                        <h3 class="cardPara-h3">Dark Sky Tourism</h3>
+                        <p class="cardPara-p">Dark Sky Tourism is a modern tourism website built with Next.js
+                        and custom CSS animations. It offers a smooth, interactive experience for exploring
+                        night sky destinations, tours, and stargazing spots, blending performance with elegant
+                        motion design.
+                        </p>
+                        <a href="https://darkskytourism.com/" target="_blank" class="cardPara-a">Visit Now....</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+
+
+                    <img src="/public/tep3.png" alt="" class="card-img">
+                    <div class="cardPara">
+                        <h3 class="cardPara-h3">JBay Solutions</h3>
+                        <p class="cardPara-p">JBay Solutions is a fully responsive, static website developed
+                        using HTML, CSS, and JavaScript. It delivers a fast, lightweight experience with simple
+                        animations and a clear layout to highlight business services effectively.
+                        </p>
+                        <a href="https://preview--jbay-website-revamp-project.lovable.app/" target="_blank" class="cardPara-a">Visit Now....</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+
+
+                    <img src="/public/tep4.png" alt="" class="card-img">
+                    <div class="cardPara">
+                        <h3 class="cardPara-h3">GameGain</h3>
+                        <p class="cardPara-p">GameGain Dashboard is a sleek, responsive web app built with
+                        Next.js and MUI. Designed for gamers and analytics, it presents performance stats and
+                        user data in a clean, intuitive interface optimized for both desktop and mobile.
+                        </p>
+                        <a href="https://gamegaindashboard.netlify.app/" target="_blank" class="cardPara-a">Visit Now....</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+
+
+                    <img src="/public/tep5.png" alt="" class="card-img">
+                     <div class="cardPara">
+                        <h3 class="cardPara-h3">JBay Solutions</h3>
+                        <p class="cardPara-p">JBay Solutions is a fully responsive, static website developed
+                        using HTML, CSS, and JavaScript. It delivers a fast, lightweight experience with simple
+                        animations and a clear layout to highlight business services effectively.
+                        </p>
+                        <a href="https://preview--jbay-website-revamp-project.lovable.app/" target="_blank" class="cardPara-a">Visit Now....</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+
+
+                    <img src="/public/tep6.png" alt="" class="card-img">
+                    <div class="cardPara">
+                        <h3 class="cardPara-h3">Sky Sojourn</h3>
+                        <p class="cardPara-p">Sky Sojourn is a modern React-based travel showcase featuring
+                        smooth UI, responsive design, and custom CSS styling. It offers an engaging interface
+                        for discovering destinations with a focus on clarity and user experience.
+                        </p>
+                        <a href="https://gathergram-site.netlify.app/" target="_blank" class="cardPara-a">Visit Now....</a>
+                    </div>
+                </div>
+                <!-- <div class="swiper-slide">
+                    <div class="cardPara">
+
+
+                        <img src="" alt="">
+                        <h3>hello</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur.
+                        </p>
+                        <a href=""></a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="cardPara">
+
+
+                        <img src="" alt="">
+                        <h3>hello</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur.
+                        </p>
+                        <a href=""></a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="cardPara">
+
+
+                        <img src="" alt="">
+                        <h3>hello</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur.
+                        </p>
+                        <a href=""></a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- Contact/Footer Section -->
+    <section class="contact-replica" id="contact">
+        <div class="container">
+            <svg class="contact-smile" viewBox="0 0 60 60" fill="none">
+                <circle cx="30" cy="30" r="28" stroke="#fff" stroke-width="2" opacity="0.5" />
+                <circle cx="22" cy="26" r="2" fill="#fff" opacity="0.5" />
+                <circle cx="38" cy="26" r="2" fill="#fff" opacity="0.5" />
+                <path d="M22 36c2.5 2 7.5 2 10 0" stroke="#fff" stroke-width="2" opacity="0.5" fill="none"
+                    stroke-linecap="round" />
+            </svg>
+            <div class="contact-main">
+                <div class="contact-row1">
+                    Let's make <span class="italic">something</span> great!
+                </div>
+                <div class="contact-row2">
+                    <span class="email">sultanferoz204@gmail.com</span>
+                    <span class="arrow">&#8594;</span>
+                    <span class="for">for</span>
+                </div>
+                <div class="contact-row3">
+                    <span class="arrow">&#8594;</span>
+                    <span class="arrow orange">&#8594;</span>
+                    <span class="arrow">&#8594;</span>
+                    <span class="collab">collaborations.</span>
+                    <span class="star">&#10033;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        body {
+            background: #ded6c3;
+            overflow-x: hidden;
+        }
+
+        /* Background halves */
+        .split-bg {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            background: white;
+            z-index: 1;
+        }
+
+        .top-bg {
+            top: 0;
+            transform-origin: bottom;
+        }
+
+        .bottom-bg {
+            bottom: 0;
+            transform-origin: top;
+        }
+
+        /* Everything else as before... */
+        .split-reveal {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 100;
+        }
+
+        .split-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .split-full {
+            font-size: 12vw;
+            font-weight: 900;
+            color: #000;
+            margin: 0;
+        }
+
+        .split-half {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 11;
+            pointer-events: none;
+        }
+
+        .top-split {
+            top: 0;
+            overflow: hidden;
+        }
+
+        .bottom-split {
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .split-text {
+            font-size: 12vw;
+            font-weight: 900;
+            color: #000;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .top-text {
+            clip-path: inset(0 0 50% 0);
+        }
+
+        .bottom-text {
+            clip-path: inset(50% 0 0 0);
+        }
+
+        .how-swiper,
+        .swiper-slide {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+
+
+        .contact-replica {
+            background: #ded6c3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 6vw 2vw 4vw 2vw;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-smile {
+            position: absolute;
+            top: 2vw;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            opacity: 0.18;
+        }
+
+        .contact-main {
+            max-width: 1400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center !important;
+            align-items: center !important;
+            /* align-items: flex-start; */
+            gap: 2vw;
+            position: relative;
+        }
+
+        .contact-row1 {
+            font-size: 4vw;
+            font-weight: 400;
+            color: #181818;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            gap: 1vw;
+            line-height: 1.1;
+        }
+
+        .contact-row1 .italic {
+            font-style: italic;
+            color: #fff;
+            font-weight: 400;
+        }
+
+        .contact-row2 {
+            font-size: 4vw;
+            font-weight: 400;
+            color: #ff3c0a;
+            margin-top: 1vw;
+            margin-bottom: 0.5vw;
+            line-height: 1.1;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            gap: 0.5vw;
+        }
+
+        .contact-row2 .email {
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 0.18em;
+            color: #ff3c0a;
+            font-weight: 500;
+            font-size: 3vw;
+            letter-spacing: 0.01em;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-row2 .arrow {
+            font-size: 3vw;
+            color: #181818;
+            margin: 0 0.5vw;
+            font-weight: 400;
+            font-family: inherit;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .contact-row2 .arrow.orange {
+            color: #ff3c0a;
+        }
+
+        .contact-row2 .for {
+            font-style: italic;
+            color: #181818;
+            font-size: 3vw;
+            margin-left: 1vw;
+        }
+
+        .contact-row3 {
+            display: flex;
+            align-items: center;
+            gap: 2vw;
+            margin-top: 1vw;
+            font-size: 3vw;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-row3 .arrow {
+            font-size: 2.5vw;
+            color: #181818;
+            margin: 0 0.5vw;
+            font-weight: 400;
+            font-family: inherit;
+            display: inline-block;
+            vertical-align: middle;
+            transition: color 0.3s;
+            animation: arrowIndicator 1.5s linear infinite;
+        }
+
+        .contact-row3 .arrow:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .contact-row3 .arrow:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .contact-row3 .arrow:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes arrowIndicator {
+
+            0%,
+            100% {
+                color: #181818;
+            }
+
+            20% {
+                color: #ff3c0a;
+            }
+
+            33% {
+                color: #ff3c0a;
+            }
+
+            53% {
+                color: #181818;
+            }
+        }
+
+        .contact-row3 .star {
+            color: #ff3c0a;
+            font-size: 2.5vw;
+            margin-left: 1vw;
+            font-weight: 700;
+            display: inline-block;
+            vertical-align: middle;
+            animation: spinStar 1.5s linear infinite;
+        }
+
+
+        @keyframes spinStar {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 900px) {
+
+            .contact-row1,
+            .contact-row2 {
+                font-size: 7vw;
+            }
+
+            .contact-row2 .email {
+                font-size: 7vw;
+            }
+
+            .contact-row2 .arrow,
+            .contact-row3 .arrow {
+                font-size: 5vw;
+            }
+
+            .contact-row2 .for,
+            .contact-row3 .collab {
+                font-size: 5vw;
+            }
+
+            .contact-row3 {
+                font-size: 5vw;
+            }
+
+            .contact-row3 .star {
+                font-size: 4vw;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-main {
+                gap: 4vw;
+            }
+
+            .contact-row1,
+            .contact-row2 {
+                font-size: 9vw;
+            }
+
+            .contact-row2 .email {
+                font-size: 9vw;
+            }
+
+            .contact-row2 .arrow,
+            .contact-row3 .arrow {
+                font-size: 7vw;
+            }
+
+            .contact-row2 .for,
+            .contact-row3 .collab {
+                font-size: 7vw;
+            }
+
+            .contact-row3 {
+                font-size: 7vw;
+            }
+
+            .contact-row3 .star {
+                font-size: 6vw;
+            }
+        }
+
+        @media screen and (max-width:7671px) {
+            .scroll_item {
+                grid-column-gap: 1rem;
+                grid-row-gap: 1rem;
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+
+            }
+
+            .scroll_img {
+                width: 100%;
+                max-width: 19rem;
+            }
+
+            .scroll_title {
+                width: 100%;
+                max-width: 19ch;
+                min-height: 3.4em;
+                justify-content: center;
+                align-items: center;
+                font-size: 7vh;
+                display: flex;
+            }
+
+        }
+
+        @media screen and (max-width: 479px) {
+            .scroll_item {
+                padding: 6vw;
+            }
+
+            .scroll_title {
+                font-size: 8vh;
+            }
+
+        }
+    </style>
+
+    <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+
+
+
+
+
+    <script>
+        // Navigation
+        const nav = document.querySelector('.nav');
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        // Toggle mobile menu
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Scroll effect for navigation
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            document.querySelectorAll('.reveal-type').forEach((el) => {
+                const split = new SplitType(el, { type: 'words' });
+
+                gsap.from(split.words, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 80%',
+                        end: 'top 20%',
+                        scrub: false,
+                        markers: false,
+                        toggleActions: "play reverse play reverse",
+                    },
+                    y: 100,
+                    opacity: 0,
+                    stagger: 0.05,
+                });
+            });
+        });
+
+
+        const lenis = new Lenis();
+
+        lenis.on('scroll', ScrollTrigger.update);
+
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+
+        gsap.ticker.lagSmoothing(0);
+
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const rows = document.querySelectorAll(".line-reveal");
+
+        rows.forEach((row, index) => {
+            gsap.from(row, {
+                x: index % 2 === 0 ? "-100vw" : "100vw",
+                opacity: 0,
+                duration: 1,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: row,
+                    start: "top 80%",
+                    end: "top 30%",
+                    scrub: true,
+                    toggleActions: "play reverse play reverse",
+                }
+            });
+        });
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".split-reveal",
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+                pin: true
+            }
+        });
+
+        // Fade out whole word
+        tl.to(".split-overlay", { opacity: 0 }, 0);
+
+        // Split text
+        tl.to(".top-split", { yPercent: -100 }, 0);
+        tl.to(".bottom-split", { yPercent: 100 }, 0);
+
+        // Split background
+        tl.to(".top-bg", { yPercent: -100 }, 0);
+        tl.to(".bottom-bg", { yPercent: 100 }, 0);
+
+        // Fade out hero names on scroll
+        window.addEventListener('scroll', function () {
+            const scrollY = window.scrollY;
+            const fadeStart = 0;
+            const fadeEnd = 260; // px
+            let opacity = 1;
+            if (scrollY > fadeStart) {
+                opacity = 1 - Math.min((scrollY - fadeStart) / (fadeEnd - fadeStart), 1);
+            }
+            document.querySelectorAll('.hero-name-left, .hero-name-right').forEach(el => {
+                el.style.opacity = opacity;
+            });
+        });
+
+        // Showreel zoom effect
+        const showreelBtn = document.getElementById('showreel-btn');
+        const zoomOverlay = document.getElementById('video-zoom-overlay');
+        const closeZoom = document.getElementById('close-zoom');
+        if (showreelBtn && zoomOverlay && closeZoom) {
+            showreelBtn.addEventListener('click', () => {
+                zoomOverlay.classList.add('active');
+            });
+            closeZoom.addEventListener('click', () => {
+                zoomOverlay.classList.remove('active');
+            });
+            zoomOverlay.addEventListener('click', (e) => {
+                if (e.target === zoomOverlay) zoomOverlay.classList.remove('active');
+            });
+        }
+
+        const howSwiper = new Swiper('.how-swiper', {
+            direction: 'vertical',
+            slidesPerView: 1,
+            speed: 800,
+            allowTouchMove: false,
+            mousewheel: false,
+        });
+
+        let isScrolling = false; // lock flag
+
+        const observer = Observer.create({
+            target: window,
+            type: "wheel,touch",
+            preventDefault: true,
+            onDown: () => {
+                if (isScrolling) return;
+                if (howSwiper.activeIndex < howSwiper.slides.length - 1) {
+                    isScrolling = true;
+                    howSwiper.slideNext();
+                    setTimeout(() => (isScrolling = false), howSwiper.params.speed + 100);
+                }
+            },
+            onUp: () => {
+                if (isScrolling) return;
+                if (howSwiper.activeIndex > 0) {
+                    isScrolling = true;
+                    howSwiper.slidePrev();
+                    setTimeout(() => (isScrolling = false), howSwiper.params.speed + 100);
+                }
+            },
+            onEnable: () => console.log("Swiper scroll enabled"),
+            onDisable: () => console.log("Swiper scroll disabled"),
+        });
+        observer.disable();
+
+        ScrollTrigger.create({
+            trigger: ".how-swiper",
+            start: "top top",
+            end: () => "+=" + (howSwiper.slides.length * window.innerHeight),
+            pin: true,
+            anticipatePin: 1,
+            onEnter: () => observer.enable(),
+            onEnterBack: () => observer.enable(),
+            onLeave: () => observer.disable(),
+            onLeaveBack: () => observer.disable(),
+        });
+
+
+        $(function () {
+            let curPage = 1;
+            const numPages = $(".skw-page").length;
+            const animTime = 1000;
+            let scrolling = false;
+            let isInSkw = false;
+
+            const updatePages = () => {
+                $(".skw-page").removeClass("active inactive");
+                $(".skw-page").each((i, el) => {
+                    if (i + 1 === curPage) {
+                        $(el).addClass("active");
+                    } else if (i + 1 < curPage) {
+                        $(el).addClass("inactive");
+                    }
+                });
+            };
+
+            const navigateDown = () => {
+                if (scrolling || curPage >= numPages) return;
+                curPage++;
+                updatePages();
+                scrolling = true;
+                setTimeout(() => scrolling = false, animTime);
+            };
+
+            const navigateUp = () => {
+                if (scrolling || curPage <= 1) return;
+                curPage--;
+                updatePages();
+                scrolling = true;
+                setTimeout(() => scrolling = false, animTime);
+            };
+
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    isInSkw = entry.intersectionRatio >= 0.99;
+                },
+                { threshold: [0.99] }
+            );
+
+            observer.observe(document.querySelector(".skw-pages"));
+
+            window.addEventListener("wheel", (e) => {
+                if (!isInSkw || scrolling) return;
+
+                e.preventDefault();
+                e.stopPropagation();
+                e.deltaY > 0 ? navigateDown() : navigateUp();
+            }, { passive: false });
+
+            window.addEventListener("keydown", (e) => {
+                if (!isInSkw || scrolling) return;
+
+                if (e.key === "ArrowDown") {
+                    e.preventDefault();
+                    navigateDown();
+                } else if (e.key === "ArrowUp") {
+                    e.preventDefault();
+                    navigateUp();
+                }
+            });
+
+            updatePages(); // Initial render
+        }); $(function () {
+            let curPage = 1;
+            const numPages = $(".skw-page").length;
+            const animTime = 1000;
+            let scrolling = false;
+            let isInSkw = false;
+
+            const updatePages = () => {
+                $(".skw-page").removeClass("active inactive");
+                $(".skw-page").each((i, el) => {
+                    if (i + 1 === curPage) {
+                        $(el).addClass("active");
+                    } else if (i + 1 < curPage) {
+                        $(el).addClass("inactive");
+                    }
+                });
+            };
+
+            const navigateDown = () => {
+                if (scrolling || curPage >= numPages) return;
+                curPage++;
+                updatePages();
+                scrolling = true;
+                setTimeout(() => scrolling = false, animTime);
+            };
+
+            const navigateUp = () => {
+                if (scrolling || curPage <= 1) return;
+                curPage--;
+                updatePages();
+                scrolling = true;
+                setTimeout(() => scrolling = false, animTime);
+            };
+
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    isInSkw = entry.intersectionRatio >= 0.99;
+                },
+                { threshold: [0.99] }
+            );
+
+            observer.observe(document.querySelector(".skw-pages"));
+
+            window.addEventListener("wheel", (e) => {
+                if (!isInSkw || scrolling) return;
+
+                e.preventDefault();
+                e.stopPropagation();
+                e.deltaY > 0 ? navigateDown() : navigateUp();
+            }, { passive: false });
+
+            window.addEventListener("keydown", (e) => {
+                if (!isInSkw || scrolling) return;
+
+                if (e.key === "ArrowDown") {
+                    e.preventDefault();
+                    navigateDown();
+                } else if (e.key === "ArrowUp") {
+                    e.preventDefault();
+                    navigateUp();
+                }
+            });
+
+            updatePages(); // Initial render
+        });
+
+
+
+        var swiper = new Swiper(".mySwiper", {
+            effect: "cards",
+            grabCursor: true,
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>

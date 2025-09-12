@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow - Sultan Feroz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor.hover {
+            transform: translate(-50%, -50%) scale(2);
+        }
+
+        /* Main Content */
+        .workflow-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 60px;
+        }
+
+        .workflow-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            position: relative;
+        }
+
+        .workflow-text {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(120px, 15vw, 280px);
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 2;
+        }
+
+        .workflow-circles {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle {
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .circle-pink {
+            width: clamp(100px, 12vw, 200px);
+            height: clamp(100px, 12vw, 200px);
+            background-color: #f4c2c2;
+            z-index: 2;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .circle-red {
+            width: clamp(100px, 12vw, 200px);
+            height: clamp(100px, 12vw, 200px);
+            background-color: #ff4500;
+            z-index: 1;
+            left: clamp(40px, 5vw, 80px);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Workflow Steps */
+        .workflow-steps {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 40px;
+            opacity: 0;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            opacity: 0.7;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .step-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .floating-dot {
+            width: 4px;
+            height: 4px;
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+
+        .floating-line {
+            width: 1px;
+            height: 60px;
+            background-color: #ffffff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .workflow-container {
+                padding: 0 40px;
+            }
+
+            .workflow-content {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .workflow-container {
+                padding: 0 30px;
+            }
+
+            .workflow-content {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .workflow-steps {
+                bottom: 40px;
+                gap: 30px;
+            }
+
+            .cursor {
+                display: none;
+            }
+
+            body {
+                cursor: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .workflow-container {
+                padding: 0 20px;
+            }
+
+            .workflow-content {
+                gap: 30px;
+            }
+
+            .workflow-steps {
+                gap: 20px;
+            }
+
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 12px;
+            }
+
+            .step-label {
+                font-size: 10px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(4) {
+            top: 40%;
+            right: 25%;
+            animation: pulse 5s ease-in-out infinite reverse;
+        }
+
+        /* Smooth transitions */
+        * {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Selection */
+        ::selection {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        ::-moz-selection {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+
+    <!-- Main Content -->
+    <main class="workflow-container">
+        <div class="workflow-content">
+            <h1 class="workflow-text">Hey</h1>
+            <div class="workflow-circles">
+                <div class="circle circle-pink"></div>
+                <div class="circle circle-red"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Register GSAP plugins
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            // Hide loading screen
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+                initAnimations();
+            }, 1000);
+
+            initCustomCursor();
+            initWorkflowAnimations();
+        });
+
+        // Custom Cursor
+        function initCustomCursor() {
+            if (window.innerWidth > 768) {
+                const cursor = document.getElementById('cursor');
+                let mouseX = 0;
+                let mouseY = 0;
+                let cursorX = 0;
+                let cursorY = 0;
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+
+                function updateCursor() {
+                    const dx = mouseX - cursorX;
+                    const dy = mouseY - cursorY;
+
+                    cursorX += dx * 0.1;
+                    cursorY += dy * 0.1;
+
+                    cursor.style.left = cursorX + 'px';
+                    cursor.style.top = cursorY + 'px';
+                    requestAnimationFrame(updateCursor);
+                }
+
+                updateCursor();
+
+                // Cursor hover effects
+                const interactiveElements = document.querySelectorAll('a, button, .step');
+                
+                interactiveElements.forEach((el) => {
+                    el.addEventListener('mouseenter', () => {
+                        cursor.classList.add('hover');
+                    });
+
+                    el.addEventListener('mouseleave', () => {
+                        cursor.classList.remove('hover');
+                    });
+                });
+            }
+        }
+
+        // Main Animations
+        function initAnimations() {
+            const tl = gsap.timeline();
+
+            // Animate main content
+            tl.from('.workflow-text', {
+                opacity: 0,
+                y: 100,
+                duration: 1.2,
+                ease: 'power3.out'
+            })
+            .from('.circle-pink', {
+                opacity: 0,
+                scale: 0,
+                duration: 0.8,
+                ease: 'back.out(1.7)'
+            }, '-=0.6')
+            .from('.circle-red', {
+                opacity: 0,
+                scale: 0,
+                duration: 0.8,
+                ease: 'back.out(1.7)'
+            }, '-=0.4');
+
+            // Animate floating elements
+            gsap.from('.floating-element', {
+                opacity: 0,
+                scale: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: 'power2.out',
+                delay: 1.5
+            });
+        }
+
+        // Workflow Animations
+        function initWorkflowAnimations() {
+            // Continuous circle animations
+            gsap.to('.circle-pink', {
+                rotation: 360,
+                duration: 20,
+                ease: 'none',
+                repeat: -1
+            });
+
+            gsap.to('.circle-red', {
+                rotation: -360,
+                duration: 25,
+                ease: 'none',
+                repeat: -1
+            });
+
+            // Breathing effect for circles
+            gsap.to('.circle-pink', {
+                scale: 1.05,
+                duration: 3,
+                ease: 'sine.inOut',
+                yoyo: true,
+                repeat: -1
+            });
+
+            gsap.to('.circle-red', {
+                scale: 0.95,
+                duration: 4,
+                ease: 'sine.inOut',
+                yoyo: true,
+                repeat: -1
+            });
+
+            // Text subtle animation
+            gsap.to('.workflow-text', {
+                y: -5,
+                duration: 4,
+                ease: 'sine.inOut',
+                yoyo: true,
+                repeat: -1
+            });
+        }
+
+        // Parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+
+            gsap.to('.circle-pink', {
+                x: (mouseX - 0.5) * 20,
+                y: (mouseY - 0.5) * 20,
+                duration: 1,
+                ease: 'power2.out'
+            });
+
+            gsap.to('.circle-red', {
+                x: (mouseX - 0.5) * -15,
+                y: (mouseY - 0.5) * -15,
+                duration: 1.2,
+                ease: 'power2.out'
+            });
+
+            gsap.to('.floating-element', {
+                x: (mouseX - 0.5) * 10,
+                y: (mouseY - 0.5) * 10,
+                duration: 2,
+                ease: 'power2.out'
+            });
+        });
+
+        // Keyboard interactions
+        document.addEventListener('keydown', (e) => {
+            if (e.key === ' ') {
+                e.preventDefault();
+                // Space bar interaction
+                gsap.to('.workflow-circles', {
+                    scale: 1.1,
+                    duration: 0.2,
+                    ease: 'power2.out',
+                    yoyo: true,
+                    repeat: 1
+                });
+            }
+        });
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            // Reinitialize cursor on resize
+            if (window.innerWidth <= 768) {
+                document.getElementById('cursor').style.display = 'none';
+            } else {
+                document.getElementById('cursor').style.display = 'block';
+            }
+        });
+
+        // Performance optimization
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Optimized scroll handler
+        const optimizedScrollHandler = debounce(() => {
+            // Additional scroll-based animations can be added here
+        }, 16);
+
+        window.addEventListener('scroll', optimizedScrollHandler);
+
+        // Add touch support for mobile
+        let startX = 0;
+        let startY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!startX || !startY) return;
+
+            const deltaX = e.touches[0].clientX - startX;
+            const deltaY = e.touches[0].clientY - startY;
+
+            // Mobile parallax effect
+            gsap.to('.circle-pink', {
+                x: deltaX * 0.1,
+                y: deltaY * 0.1,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+
+            gsap.to('.circle-red', {
+                x: deltaX * -0.05,
+                y: deltaY * -0.05,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+
+        document.addEventListener('touchend', () => {
+            startX = 0;
+            startY = 0;
+            
+            // Reset positions
+            gsap.to('.circle-pink, .circle-red', {
+                x: 0,
+                y: 0,
+                duration: 0.5,
+                ease: 'power2.out'
+            });
+        });
+    </script>
+</body>
+</html>

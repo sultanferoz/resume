@@ -26,11 +26,11 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
+  font-family: "Schnyder L", serif !important;
 }
 
 a {
+  font-family: "Schnyder L", serif !important;
   text-decoration: none;
   color: inherit;
 }
@@ -40,6 +40,10 @@ a {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 40px;
+}
+
+.span {
+  font-family: "GT Walsheim", sans-serif !important;
 }
 
 
@@ -99,7 +103,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Playfair Display', serif;
   font-size: 4.2vw;
   font-weight: 600;
   color: #181818;
@@ -115,7 +118,7 @@ a {
   display: block;
   min-width: 4em;
   text-align: center;
-  font-family: 'Inter', sans-serif;
+  font-family: "GT Walsheim", sans-serif !important;
   font-size: 0.95vw;
   font-weight: 400;
   color: #181818cc;
@@ -295,9 +298,12 @@ a {
 }
 
 .about-title {
+  font-family: "GT Walsheim", sans-serif !important;
   font-size: 48px;
+  font-weight: 600;
   margin-bottom: 60px;
   color: var(--primary-color);
+  position: sticky;
 }
 
 .about-description {
@@ -709,17 +715,7 @@ a {
 
 
 
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Playfair Display", serif;
-  font-weight: 500;
-  line-height: 1.2;
-}
+
 
 strong {
   font-weight: 600;
@@ -925,13 +921,7 @@ strong {
   align-items: start;
 }
 
-.about-title {
-  font-size: clamp(36px, 5vw, 48px);
-  font-weight: 600;
-  color: #000000;
-  position: sticky;
-  top: 120px;
-}
+
 
 .about-description {
   display: flex;
@@ -1552,10 +1542,10 @@ strong {
 
 .hero-name-left,
 .hero-name-right {
-  font-family: 'Playfair Display', serif;
+  /* font-family: 'Playfair Display', serif; */
   font-size: 7vw;
   color: #fff;
-  font-weight: 600;
+  font-weight: 200;
   letter-spacing: 0.02em;
   flex: 1 1 0;
   text-align: center;
@@ -1806,7 +1796,7 @@ strong {
   padding: 0 5vw;
   font-family: 'Inter', sans-serif;
   font-size: 1.2vw;
-  color: #b3ab98;
+  color: #a19d94;
   letter-spacing: 0.2em;
   z-index: 2;
   pointer-events: none;
@@ -1818,9 +1808,14 @@ strong {
 
 /* 3D Animated Text */
 .hero-3d {
+  font-family: "Schnyder L", serif !important;
+  font-size: 7vw;
+  font-weight: 200;
   transition: transform 0.2s cubic-bezier(.25, .8, .25, 1);
   will-change: transform;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.10), 0 1px 0 #cfc6b0;
+  position: fixed;
+  z-index: 10;
+  /* text-shadow: 0 2px 8px rgba(0, 0, 0, 0.10), 0 1px 0 #cfc6b0; */
 }
 
 @media (max-width: 900px) {
@@ -1843,9 +1838,7 @@ strong {
   }
 
   .hero-numbers {
-    font-size: 4vw;
-    top: 7vw;
-    padding: 0 2vw;
+   display: none;
   }
 }
 
@@ -1855,7 +1848,7 @@ strong {
   height: auto;
   max-height: 70vh;
   object-fit: cover;
-  background: #fff;
+  cursor: pointer;
   margin: 0 2vw;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   /* border-radius: 1.2em; */
@@ -2229,7 +2222,7 @@ header {
   position: relative;
   box-sizing: border-box;
   opacity: 1;
-  pointer-events: auto;
+  pointer-events: auto !important;
   transform: none;
   transition: none;
   z-index: 1;
@@ -2456,10 +2449,15 @@ header {
   overflow: hidden;
   height: 60vh !important;
   width: 43vh !important;
+  pointer-events: auto !important;
 }
 
-.card-img{
- width: 335px;
+
+
+
+
+.card-img {
+  width: 335px;
   height: auto;
   aspect-ratio: 335 / 240;
 }
@@ -2472,37 +2470,44 @@ header {
   box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.25);
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-right: 1px solid rgba(255, 255, 255, 0.5);
-   background: #FFFFFF25;
+  background: #FFFFFF25;
   border-radius: 15px;
   backdrop-filter: blur(90px);
   -webkit-backdrop-filter: blur(90px);
   overflow: hidden;
   margin: 0 14px;
   padding: 10px;
+  z-index: 5;
+  pointer-events: auto;
 }
 
-.cardPara-h3{
-    font-size: 24px;
+.cardPara-h3 {
+  font-size: 24px;
   font-weight: 400;
   color: #000000;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
 
-.cardPara-p{
-    font-size:12px;
+.cardPara-p {
+  font-size: 12px;
   font-weight: 400;
   color: #000000;
   text-transform: capitalize;
   margin-bottom: 8px;
 }
-.cardPara-a{
-    font-size: 11px;
-   text-decoration: underline;
+
+.cardPara-a {
+  font-size: 14px;
+  position: relative;
+  z-index: 100;
+  text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
   color: #ff3c0a;
   margin-bottom: 4px;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 /* Tablet and below */
@@ -2512,12 +2517,14 @@ header {
     align-items: center;
     justify-content: center;
     padding: 20px 8px;
-    height: auto; /* prevent cutting */
+    height: auto;
+    /* prevent cutting */
   }
 
   .swiper {
     width: 100%;
-    max-width: 360px; /* keeps cards small but readable */
+    max-width: 360px;
+    /* keeps cards small but readable */
     height: auto;
     margin: 0 auto;
     padding: 0;
@@ -2527,26 +2534,31 @@ header {
 
   .swiper-slide {
     width: 100% !important;
-    max-width: 300px;  /* prevents overflow */
+    max-width: 300px;
+    /* prevents overflow */
     height: auto !important;
     margin: 0 auto;
+    pointer-events: auto !important;
   }
 
   .card-img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* ensures no distortion */
+    object-fit: cover;
+    /* ensures no distortion */
   }
 
   .cardPara {
     width: 100%;
     margin: 10px auto;
     padding: 12px;
-    text-align: center; /* centers text for smaller screens */
+    text-align: center;
+    /* centers text for smaller screens */
   }
 }
+
 /* Small Phones - 425px and below */
-@media (max-width: 425px) {
+@media (max-width: 320px) {
   .skw-section {
     flex-direction: column;
     align-items: center;
@@ -2557,15 +2569,22 @@ header {
 
   .swiper {
     width: 100%;
-    max-width: 260px; /* smaller but balanced */
+    max-width: 200px;
+    /* smaller but balanced */
     height: auto;
     margin: 0 auto;
     padding: 0;
   }
 
+  .how-swiper .swiper-wrapper {
+  width: 50%;
+  height: 100vh;
+}
+
   .swiper-slide {
     width: 100% !important;
-    max-width: 240px; /* card fits small screens */
+    max-width: 240px;
+    /* card fits small screens */
     height: auto !important;
     margin: 10px auto;
   }
@@ -2599,6 +2618,13 @@ header {
   }
 }
 
+@media (max-width: 200px){
+.how-swiper .swiper-wrapper {
+  width:20%;
+  overflow: hidden;
+  height: 100vh;
+}
+}
 
 .how-swiper .swiper-button-next,
 .how-swiper .swiper-button-prev {
@@ -3161,11 +3187,10 @@ header {
   background: #ded6c3;
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 60vh;
   flex-direction: column;
-  justify-content: center !important;
-  align-items: center !important;
-  padding: 6vw 2vw 4vw 2vw;
+  justify-content: center;
+  text-align-last: center;
   box-sizing: border-box;
   font-family: 'Playfair Display', serif;
 }
@@ -3211,8 +3236,8 @@ header {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center !important;
-  align-items: center !important;
+  /* justify-content: center !important; */
+  /* align-items: start !important; */
   /* align-items: flex-start; */
   gap: 2vw;
   position: relative;
@@ -3420,7 +3445,8 @@ header {
 /* Tablet and below */
 @media (max-width: 1024px) {
   .contact-replica {
-    height: auto; /* prevents content cut */
+    height: auto;
+    /* prevents content cut */
     padding: 10vw 4vw;
   }
 
@@ -3434,7 +3460,8 @@ header {
 
   .contact-main {
     gap: 6vw;
-    text-align: center; /* centers text for stacked layout */
+    text-align: center;
+    /* centers text for stacked layout */
   }
 
   .contact-row1,
@@ -3442,12 +3469,13 @@ header {
   .contact-row3 {
     justify-content: center;
     flex-wrap: wrap;
-     font-size: 24px !important;
+    font-size: 24px !important;
   }
 
-   .contact-row2 .email {
+  .contact-row2 .email {
     font-size: 24px !important;
-    word-break: break-word; /* prevents email overflow */
+    word-break: break-word;
+    /* prevents email overflow */
   }
 
   .contact-row2 .arrow,
@@ -3457,14 +3485,16 @@ header {
 
   .contact-row2 .for,
   .contact-row3 .collab {
-     font-size: 24px !important;
+    font-size: 24px !important;
   }
-   .workflow-step-number{
+
+  .workflow-step-number {
     font-size: 16px !important;
     margin-top: 14px !important;
   }
-  .workflow-step-label{
-     font-size: 16px !important;
+
+  .workflow-step-label {
+    font-size: 16px !important;
     margin-top: 14px !important;
   }
 }
@@ -3488,7 +3518,8 @@ header {
   .contact-row1,
   .contact-row2,
   .contact-row3 {
-    font-size: 16px !important; /* scales text down proportionally */
+    font-size: 16px !important;
+    /* scales text down proportionally */
     line-height: 1.2;
     justify-content: center;
     text-align: center;
@@ -3497,7 +3528,8 @@ header {
 
   .contact-row2 .email {
     font-size: 16px !important;
-    word-break: break-word; /* prevents email overflow */
+    word-break: break-word;
+    /* prevents email overflow */
   }
 
   .contact-row2 .arrow,
@@ -3507,14 +3539,16 @@ header {
 
   .contact-row2 .for,
   .contact-row3 .collab {
-     font-size: 16px !important;
+    font-size: 16px !important;
   }
-   .workflow-step-number{
+
+  .workflow-step-number {
     font-size: 10px !important;
     margin-top: 10px !important;
   }
-  .workflow-step-label{
-     font-size: 10px !important;
+
+  .workflow-step-label {
+    font-size: 10px !important;
     margin-top: 10px !important;
   }
 

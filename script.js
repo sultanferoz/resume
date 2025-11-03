@@ -1,3 +1,6 @@
+
+
+
 // Import GSAP and ScrollTrigger
 const gsap = window.gsap
 const ScrollTrigger = window.gsap.ScrollTrigger

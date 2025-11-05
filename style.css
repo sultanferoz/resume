@@ -1268,6 +1268,10 @@ strong {
 
   .nav-toggle {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+  
   }
 
   .hero {
@@ -1666,23 +1670,18 @@ strong {
     gap: 2rem;
   }
 
-  .hero-name-left,
-  .hero-name-right {
-    text-align: center;
-  }
+  
 
-  .hero-name-left {
-    order: -1;
+  .hero-replica-content .hero-name-left {
     top: 10%;
     left: 1%;
-    position: relative;
+        align-content: flex-end;
   }
 
-  .hero-name-right {
-    order: 1;
+  .hero-replica-content .hero-name-right {
     bottom: 10%;
     right: 0%;
-  }
+  } 
 
   .hero-video {
     width: 60vw;
@@ -1690,6 +1689,11 @@ strong {
     height: auto;
   }
 }
+
+
+
+
+
 
 /* Hero Replica SVG and Numbers */
 .hero-bg-svg {

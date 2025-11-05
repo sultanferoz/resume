@@ -40,7 +40,11 @@
                 </div>
             </div>
             <div class="nav-toggle" id="nav-toggle">
-               <img src="/public/biologo.png" alt="logo" width="60px">
+                <img src="/public/biologo.png" alt="logo" width="60px">
+                <div class="nav-center">
+                    <a href="#home" class="nav-link">Home</a>
+                </div>
+                <a href="workflow.html" class="nav-link">Workflow </a>
             </div>
         </div>
     </nav>
@@ -625,6 +629,9 @@
                 nav.classList.remove('scrolled');
             }
         });
+
+        updateVideoHeight();
+        window.addEventListener('resize', updateVideoHeight);
 
 
         const heroVideo = document.querySelector('.hero-video');

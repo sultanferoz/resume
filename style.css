@@ -55,7 +55,7 @@ a {
   border: none !important;
   box-shadow: none !important;
   padding: 32px 0 18px 0;
-  transition: background 0.3s, box-shadow 0.3s;
+  z-index: 50;
 }
 
 /* .nav.scrolled {
@@ -2042,6 +2042,11 @@ header {
   animation: draw 2s forwards;
 }
 
+.display{
+  display: flex;
+  flex-direction: column;
+}
+
 @keyframes draw {
   to {
     stroke-dashoffset: 0;
@@ -2049,6 +2054,9 @@ header {
 }
 
 @media (max-width: 900px) {
+  .display{
+  display: none;
+}
   .replica-block {
     font-size: 4.5vw;
   }
@@ -2359,7 +2367,7 @@ header {
   margin: 0 !important;
 }
 
-.swiper-slide  {
+.swiper-slide {
   display: flex;
   font-size: 22px;
   font-weight: bold;
@@ -2455,7 +2463,7 @@ header {
     padding: 0;
     display: flex;
     justify-content: center;
-     overflow: visible !important;
+    overflow: visible !important;
   }
 
   .swiper-slide {
@@ -2483,8 +2491,8 @@ header {
   }
 
   .swiper-slide-active {
-  z-index: 100 !important;
-}
+    z-index: 100 !important;
+  }
 }
 
 /* Small Phones - 425px and below */
@@ -3118,6 +3126,19 @@ header {
   box-sizing: border-box;
   font-family: 'Playfair Display', serif;
 }
+.work_hero{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align-last: center;
+
+}
+.work_heroSec{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .contact-smile {
   position: absolute;
@@ -3168,14 +3189,14 @@ header {
 }
 
 .contact-row1 {
-  font-size: 4vw;
+  font-family: "Schnyder L", serif;
+  font-size: 6vw !important;
   font-weight: 400;
+  line-height: 1;
   color: #181818;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
   gap: 1vw;
-  line-height: 1.1;
 }
 
 .contact-row1 .italic {
@@ -3389,28 +3410,21 @@ header {
     /* centers text for stacked layout */
   }
 
-  .contact-row1,
-  .contact-row2,
-  .contact-row3 {
-    justify-content: center;
-    flex-wrap: wrap;
-    font-size: 24px !important;
-  }
-
   .contact-row2 .email {
     font-size: 24px !important;
     word-break: break-word;
     /* prevents email overflow */
   }
 
-  .contact-row2 .arrow,
-  .contact-row3 .arrow {
-    font-size: 24px !important;
-  }
-
-  .contact-row2 .for,
-  .contact-row3 .collab {
-    font-size: 24px !important;
+.contact-row1 {
+    font-family: "Schnyder L", serif;
+    font-size: 7vw !important;
+    font-weight: 400;
+    line-height: 1;
+    color: #181818;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
   }
 
   .workflow-step-number {
@@ -3443,7 +3457,7 @@ header {
   .contact-row1,
   .contact-row2,
   .contact-row3 {
-    font-size: 16px !important;
+    font-size: 26px !important;
     /* scales text down proportionally */
     line-height: 1.2;
     justify-content: center;
@@ -3493,6 +3507,9 @@ header {
 
 
 @media (max-width: 900px) {
+  workflow-main{
+    display:none;
+  }
   .workflow-section-learn {
     flex-direction: column;
     gap: 2vw;
@@ -3504,9 +3521,11 @@ header {
 .contact-form-popup {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
   justify-content: center;
   align-items: center;
@@ -3519,7 +3538,7 @@ header {
   border-radius: 12px;
   max-width: 400px;
   width: 90%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   text-align: center;
   position: relative;
 }
@@ -3558,13 +3577,15 @@ header {
 
 .success-popup {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: none;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(6px);
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 2000;
   animation: fadeIn 0.3s ease forwards;
 }
@@ -3574,7 +3595,7 @@ header {
   border-radius: 16px;
   padding: 32px 40px;
   text-align: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   transform: scale(0.9);
   animation: popupIn 0.35s ease forwards;
   max-width: 360px;
@@ -3602,18 +3623,36 @@ header {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes popupIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes drawCheck {
-  from { stroke-dasharray: 150; stroke-dashoffset: 150; }
-  to { stroke-dashoffset: 0; }
+  from {
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 
@@ -3775,7 +3814,6 @@ header {
   z-index: -1;
   position: relative;
   box-shadow: 0 0 60px rgb(247, 246, 246);
-  animation: box-shadow-bounce 3.2s cubic-bezier(.68, -0.55, .27, 1.55) infinite;
 }
 
 @keyframes box-shadow-bounce {
@@ -3903,11 +3941,12 @@ header {
   font-weight: 700;
 }
 
-@media (max-width: 900px) {
+
+@media (max-width: 768px) {
   .workflow-step-row {
     flex-direction: column;
-    gap: 1vw;
-    align-items: stretch;
+    gap: 2vw;
+    align-items: center;
   }
 
   .workflow-step-right {
